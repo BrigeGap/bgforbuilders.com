@@ -32,8 +32,12 @@
 
 <section style="border-top:0;padding-top:16px">
   <div class="wrap split">
-    <!-- FORM_ENDPOINT: set when the form service is chosen; until then the form opens an email. -->
-    <form class="contact-form" action="mailto:andrew@bgforbuilders.com" method="post" enctype="text/plain">
+    <!-- FORM_ENDPOINT: Web3Forms (free, 250/month, delivers to andrew@). The access key is public by design. -->
+    <form class="contact-form" id="contact" action="https://api.web3forms.com/submit" method="post">
+      <input type="hidden" name="access_key" value="e02d6bed-cd8b-46e6-ac2d-83b9718f2a78">
+      <input type="hidden" name="subject" value="New project inquiry from bgforbuilders.com">
+      <input type="hidden" name="from_name" value="bgforbuilders.com">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row">
         <label>Name<input name="name" autocomplete="name" required></label>
         <label>Company<input name="company" autocomplete="organization"></label>
@@ -58,7 +62,26 @@
       </div>
       <label>About the project<textarea name="message" placeholder="Type, size, schedule, where it stands today"></textarea></label>
       <button class="btn solid" type="submit">Send</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
+    <script>
+      // Send in place and show the result; without JS the form posts to Web3Forms' own thank-you page.
+      document.getElementById("contact").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const form = e.target, status = form.querySelector(".form-status"), btn = form.querySelector("button");
+        btn.disabled = true; status.textContent = "Sending...";
+        try {
+          const res = await fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+          const out = await res.json();
+          if (!out.success) throw new Error(out.message);
+          form.reset();
+          status.textContent = "Thank you. We have your project and will be in touch.";
+        } catch (err) {
+          status.textContent = "That didn't send. Please email andrew@bgforbuilders.com or call (321) 578-9473.";
+        }
+        btn.disabled = false;
+      });
+    </script>
     <div class="side">
       <p class="eyebrow">Reach us directly</p>
       <p><a href="mailto:andrew@bgforbuilders.com">andrew@bgforbuilders.com</a></p>

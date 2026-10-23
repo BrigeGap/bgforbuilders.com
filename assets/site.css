@@ -120,3 +120,5 @@ form.contact-form{display:grid;gap:16px;max-width:40rem}
 .contact-form button{justify-self:start;font:inherit;font-weight:600;cursor:pointer}
 .side p{margin:0 0 6px;color:var(--muted)}
 .side a{font-weight:600;text-decoration:none;color:var(--gold-ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-status{margin:0;font-size:.95rem;color:var(--gold-ink);min-height:1.4em}

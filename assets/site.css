@@ -1,0 +1,122 @@
+/* One page, read like the pitch deck: the idea, who leads it, what a developer gets, how it plugs in, where the name comes from. */
+:root{
+  --paper:#F9F7F3; --panel:#FFFFFF; --ink:#1E1B18; --muted:#5A544C; --soft:#7A7367; --rule:#E4DCCB;
+  --gold:#BE8319; --gold-ink:#A06A0C; --gold-hi:#D9A441; --night:#1E1B18; --night-ink:#F9F7F3; --night-muted:#D8CFBF;
+  --f-serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  --f-sans:"Public Sans","Segoe UI",system-ui,sans-serif;
+}
+/* Light only, like the deck: cream pages with dark bands for emphasis. The engraved mark disappears on a dark page. */
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--f-sans)}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:72rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-serif);font-weight:700;line-height:1.12;margin:0;text-wrap:balance}
+.eyebrow{font:600 13px/1.2 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 12px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:16px;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:84px}
+.brand span{font:700 1.3rem/1 var(--f-serif);letter-spacing:.12em;text-transform:uppercase}
+.brand span b{color:var(--gold)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;gap:28px;align-items:center;padding-block:clamp(36px,6vw,72px)}
+@media (min-width:60rem){.hero{grid-template-columns:1fr 1.1fr}}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.7rem)}
+.lede{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);margin:16px 0 26px;max-width:36rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:4px;border:1.5px solid var(--gold)}
+.btn.solid{background:var(--gold);color:#fff}
+.btn.solid:hover{filter:brightness(1.06)}
+.btn.line{color:var(--gold-ink)}
+.btn.line:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.hero figure{margin:0;border-radius:6px;overflow:hidden;background:#F6F4F0}
+.hero .lic{font-size:14px;color:var(--soft);margin-top:18px}
+
+section{padding-block:clamp(44px,7vw,80px);border-top:1px solid var(--rule)}
+section h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:24px;min-width:0}
+.card h3{font-family:var(--f-sans);font-size:1.15rem;margin-bottom:8px}
+.card p{margin:0;color:var(--muted)}
+
+/* leadership, dark band like the deck's dark slides */
+.dark{background:var(--night);color:var(--night-ink);border-top:0}
+.dark .eyebrow{color:var(--gold-hi)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:36px}
+.person{border-top:3px solid var(--gold-hi);padding-top:20px}
+.person h3{font-size:1.7rem}
+.person .role{font:600 12px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);margin:6px 0 14px}
+.person p{margin:0 0 10px;color:var(--night-muted)}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:16px}
+.stats div{min-width:6rem}
+.stats b{display:block;font:700 2rem/1 var(--f-sans);color:var(--night-ink)}
+.stats span{font-size:14px;color:var(--night-muted)}
+
+/* modules table */
+.mods{width:100%;border-collapse:collapse;font-size:16px}
+.mods th{font-weight:700;color:var(--gold-ink);text-align:left;padding:0 24px 12px 0;border-bottom:1px solid var(--gold)}
+.mods td{padding:14px 24px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.mods td:first-child{font-weight:600;white-space:nowrap}
+@media (max-width:40rem){.mods,.mods tbody,.mods tr,.mods td{display:block}.mods thead{display:none}.mods td:first-child{padding-bottom:0;border:0;white-space:normal}}
+
+.split{display:grid;gap:28px}
+@media (min-width:56rem){.split{grid-template-columns:1fr 1fr;align-items:start}}
+.split p{margin:0 0 14px;color:var(--muted)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:28px;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--gold);padding-top:16px}
+.steps li::before{content:counter(s);display:block;font:700 1.9rem/1 var(--f-sans);color:var(--gold-ink);margin-bottom:8px}
+.steps b{display:block;font-size:1.1rem;margin-bottom:4px}
+.steps span{color:var(--muted)}
+
+/* the name */
+.sheet{margin:0 0 24px;border-radius:6px;overflow:hidden;border:1px solid var(--rule)}
+.quote{font:italic 400 clamp(1.25rem,2.4vw,1.6rem)/1.4 var(--f-serif);margin:0 0 14px;color:var(--ink)}
+
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:28px}
+.creds h3{font-family:var(--f-sans);font-size:1rem;color:var(--gold-ink);margin-bottom:8px}
+.creds ul{margin:0;padding-left:1.1rem;color:var(--muted)}
+.creds li{margin:4px 0}
+
+.contact{display:grid;gap:10px;max-width:44rem}
+.contact p{margin:0;color:var(--muted)}
+.contact .big{font:700 clamp(1.4rem,3.4vw,2rem)/1.2 var(--f-serif);text-decoration:none;word-break:break-word}
+.contact .big:hover{color:var(--gold-ink)}
+
+footer{border-top:1px solid var(--rule);padding-block:24px 40px;color:var(--soft);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 24px}
+
+/* nav state, page heads, forms (multi-page additions) */
+nav a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;text-decoration-thickness:2px}
+.pagehead{padding-block:clamp(36px,6vw,64px) clamp(8px,2vw,16px)}
+.pagehead h1{font-size:clamp(2.2rem,5vw,3.4rem);max-width:48rem}
+.pagehead .lede{margin-bottom:0}
+.note{font-size:14px;color:var(--soft);margin-top:14px}
+.dark .note{color:var(--night-muted)}
+.bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:20px}
+.bignums div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:22px}
+.bignums b{display:block;font:700 2.4rem/1 var(--f-sans)}
+.bignums span{color:var(--muted)}
+.checks{margin:0;padding-left:1.2rem;color:var(--muted)} .checks li{margin:6px 0}
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cta-band h2{margin:0}
+form.contact-form{display:grid;gap:16px;max-width:40rem}
+.contact-form label{display:grid;gap:6px;font-weight:600;font-size:15px}
+.contact-form input,.contact-form select,.contact-form textarea{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:11px 12px}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.contact-form textarea{min-height:9rem;resize:vertical}
+.contact-form .row{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.contact-form button{justify-self:start;font:inherit;font-weight:600;cursor:pointer}
+.side p{margin:0 0 6px;color:var(--muted)}
+.side a{font-weight:600;text-decoration:none;color:var(--gold-ink)}

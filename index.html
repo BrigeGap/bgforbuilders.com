@@ -4,173 +4,116 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BridgeGap For Builders</title>
-<meta name="description" content="BridgeGap For Builders, LLC: a Florida-licensed general contractor (CGC1541464) that sets up and runs the back office for construction companies.">
+<meta name="description" content="A Florida certified general contractor (CGC1541464) with a staffed project team and a subcontractor network, ready to plug into a developer's pipeline.">
+<meta property="og:title" content="BridgeGap For Builders">
+<meta property="og:description" content="A Florida certified general contractor (CGC1541464) with a staffed project team and a subcontractor network, ready to plug into a developer's pipeline.">
+<meta property="og:image" content="https://www.bgforbuilders.com/assets/og.jpg">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
-<style>
-/* Layout: a single page read top to bottom, like a job sign: who we are, what we do, how an engagement runs, how to reach us. */
-:root{
-  --paper:#eef0ef; --panel:#ffffff; --ink:#15202a; --muted:#56616b; --rule:#cfd5d4;
-  --rust:#b44c1e; --rust-soft:#f4e3da;
-  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){:root{
-  --paper:#12181d; --panel:#1a2229; --ink:#e8ecee; --muted:#9aa6af; --rule:#2c363e;
-  --rust:#e2875c; --rust-soft:#3a251b; color-scheme:dark}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--f-body)}
-.wrap{max-width:68rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-a{color:inherit}
-a:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
-
-/* header */
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:20px;border-bottom:1px solid var(--rule)}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-ph{width:48px;height:48px;border:2px dashed var(--muted);border-radius:4px;display:grid;place-items:center;font:700 18px/1 var(--f-display);color:var(--muted);letter-spacing:.04em}
-.brand b{font:700 1.35rem/1 var(--f-display);letter-spacing:.02em;text-transform:uppercase}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
-nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding-block:clamp(48px,9vw,104px) clamp(40px,7vw,80px);display:grid;gap:22px;max-width:52rem}
-.tag{font:500 13px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rust)}
-h1{font:700 clamp(2.6rem,7vw,4.6rem)/.98 var(--f-display);margin:0;text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
-.lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--muted);margin:0;max-width:40rem}
-.cta{display:inline-flex;align-items:center;gap:10px;justify-self:start;background:var(--rust);color:#fff;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:3px}
-.cta:hover{filter:brightness(1.08)}
-
-section{padding-block:clamp(40px,7vw,72px);border-top:1px solid var(--rule)}
-h2{font:700 clamp(1.7rem,4vw,2.3rem)/1.05 var(--f-display);text-transform:uppercase;margin:0 0 24px;letter-spacing:.01em}
-.kicker{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
-
-/* services */
-.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:20px}
-.svc article{background:var(--panel);border:1px solid var(--rule);border-top:4px solid var(--rust);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.svc h3{font:700 1.35rem/1.1 var(--f-display);text-transform:uppercase;margin:0}
-.svc p{margin:0;color:var(--muted)}
-.svc ul{margin:0;padding-left:1.1rem} .svc li{margin:3px 0}
-.svc .lead{grid-column:1/-1}
-@media (min-width:52rem){.svc .lead{display:grid;grid-template-columns:1fr 1fr;column-gap:32px;align-items:start}.svc .lead h3,.svc .lead>p:first-of-type{grid-column:1}.svc .lead ul{grid-column:2;grid-row:1/span 3}}
-
-/* engagement steps: a real sequence */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:0;counter-reset:s;border:1px solid var(--rule);background:var(--panel)}
-.steps li{counter-increment:s;padding:22px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:6px;min-width:0}
-.steps li:last-child{border-right:0}
-@media (max-width:58rem){.steps li{border-right:0;border-bottom:1px solid var(--rule)}.steps li:last-child{border-bottom:0}}
-.steps li::before{content:"0" counter(s);font:500 13px/1 var(--f-mono);color:var(--rust)}
-.steps b{font:700 1.2rem/1.1 var(--f-display);text-transform:uppercase}
-.steps span{color:var(--muted);font-size:15px}
-
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:32px}
-.two p{margin:0 0 12px}
-ul.fit{margin:0;padding-left:1.1rem} ul.fit li{margin:5px 0}
-.licence{display:inline-block;font:500 15px/1 var(--f-mono);background:var(--rust-soft);color:var(--rust);padding:8px 10px;border-radius:3px;margin-top:4px}
-
-.contact{display:grid;gap:14px;max-width:40rem}
-.contact p{margin:0;color:var(--muted)}
-.mail{font:700 clamp(1.4rem,4vw,2rem)/1.1 var(--f-display);letter-spacing:.01em;word-break:break-word}
-
-footer{border-top:1px solid var(--rule);padding-block:24px 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 24px}
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#">
-      <span class="logo-ph" aria-label="Logo placeholder">BG</span>
-      <b>BridgeGap For Builders</b>
+    <a class="brand" href="index.html">
+      <img src="assets/mark.png" width="84" height="36" alt="">
+      <span>Bridge<b>Gap</b></span>
     </a>
-    <nav aria-label="Sections">
-      <a href="#services">Services</a>
-      <a href="#how">How we work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
   </header>
-
+</div>
+<div class="wrap">
   <div class="hero">
-    <span class="tag">Florida licensed general contractor · CGC1541464</span>
-    <h1>The back office, built by builders</h1>
-    <p class="lede">BridgeGap For Builders sets up and runs the back office for construction companies: pay applications, lien waivers, lender draws, compliance and reporting. Your team keeps building; the paperwork keeps up.</p>
-    <a class="cta" href="#contact">Start a conversation</a>
+    <div>
+      <p class="eyebrow">BridgeGap For Builders, LLC</p>
+      <h1>A construction company, ready to plug into your pipeline</h1>
+      <p class="lede">A licensed general contractor, a staffed project team, and a subcontractor network for every trade, in one call.</p>
+      <div class="actions">
+        <a class="btn solid" href="contact.html">Send us a project</a>
+        <a class="btn line" href="https://netorgft19913843-my.sharepoint.com/:v:/g/personal/andrew_bgforbuilders_com/IQCck_mI61bSQ5mAD1Hds7wqAaHrCgmL9otDY9VZOCg8VP4?e=DYeQAD" target="_blank" rel="noopener">Watch the 5-minute overview</a>
+      </div>
+      <p class="lic">Florida Certified General Contractor CGC1541464</p>
+    </div>
+    <figure><img src="assets/bridge-hero.jpg" width="1600" height="900" alt="Leonardo da Vinci's self-supporting timber bridge on two fieldstone bases, above the BridgeGap For Builders wordmark"></figure>
   </div>
+</div>
 
-  <section id="services">
-    <p class="kicker">Services</p>
-    <h2>What we take off your desk</h2>
-    <div class="svc">
-      <article class="lead">
-        <h3>Construction back office</h3>
-        <p>We map how your office runs today, then build and run a system on the tools you already use. Every action that leaves the office gets a person's approval, and every step leaves an audit trail.</p>
-        <ul>
-          <li>Pay applications and schedule-of-values tracking</li>
-          <li>Lien waivers, collected and matched to every payment</li>
-          <li>Lender draw packages, assembled monthly</li>
-          <li>Licensing, insurance and compliance tracking</li>
-          <li>Project and executive reporting</li>
-        </ul>
-      </article>
-      <article>
-        <h3>Owner's representation</h3>
-        <p>For developers and owners: someone on your side of the table through budget, schedule, draws and closeout.</p>
-      </article>
-      <article>
-        <h3>Permitting</h3>
-        <p>Applications, tracking and follow-up through inspections, run by a licensed contractor.</p>
-      </article>
+<section id="idea">
+  <div class="wrap">
+    <p class="eyebrow">The idea</p>
+    <h2>One call replaces three searches</h2>
+    <div class="cards">
+      <div class="card"><h3>A licensed contractor</h3><p>A Florida general contractor license held by the company, with Andrew Watson as qualifying agent.</p></div>
+      <div class="card"><h3>A team that runs a company</h3><p>Accounting and administration, project managers and superintendents, drawn from an established network.</p></div>
+      <div class="card"><h3>Subcontractors in every trade</h3><p>Relationships built over 15 years of multifamily and student housing construction.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="how">
-    <p class="kicker">How we work</p>
-    <h2>Start small, then scale what works</h2>
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Leadership</p>
+    <h2>Led by the people who keep the books and build the work</h2>
+    <div class="people">
+      <div class="person">
+        <h3>Kayla Bugbee</h3>
+        <p class="role">Founder &amp; CEO</p>
+        <p>Kayla founded BridgeGap and leads the company, with more than fifteen years of construction administration and financial accounting for general contractors and subcontractors.</p>
+      </div>
+      <div class="person">
+        <h3>Andrew Watson</h3>
+        <p class="role">President &amp; Qualifying Agent</p>
+        <p>Andrew leads construction operations and holds the company's license, with more than fifteen years managing multifamily and student housing portfolios from preconstruction through closeout.</p>
+      </div>
+    </div>
+    <p class="note"><a href="about.html" style="color:var(--gold-hi)">More about the team &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How it plugs in</p>
+    <h2>From your pipeline to our crew in four steps</h2>
     <ol class="steps">
-      <li><b>Assessment</b><span>About two weeks. We find the two or three workflows costing you the most hours or risk.</span></li>
-      <li><b>Pilot</b><span>About 30 days. One workflow built on your real documents, with a success measure agreed up front.</span></li>
-      <li><b>Rollout</b><span>The next workflows, one at a time: intake and filing, compliance, reporting.</span></li>
-      <li><b>Managed</b><span>We run, maintain and improve the system month to month.</span></li>
+      <li><b>Scope</b><span>You share the project, budget and schedule. We confirm fit.</span></li>
+      <li><b>Staff</b><span>We assign the project team and set up the back office.</span></li>
+      <li><b>Buy out</b><span>We bid the trades and permit the work under our license.</span></li>
+      <li><b>Build</b><span>We build, report on schedule and cost, and turn the project over.</span></li>
     </ol>
-  </section>
+    <p class="note"><a href="services.html" style="color:var(--gold-ink)">See every service &rarr;</a></p>
+  </div>
+</section>
 
-  <section id="about">
-    <p class="kicker">About</p>
-    <h2>Builders first</h2>
-    <div class="two">
-      <div>
-        <p>BridgeGap For Builders, LLC is a Florida general contractor based in Fern Park, Florida. We have run the back office of a multi-project construction portfolio ourselves, and we build for the way contractors actually work: spreadsheets, email and lender deadlines.</p>
-        <span class="licence">FL CGC1541464</span>
-      </div>
-      <div>
-        <p><b>Who we work with</b></p>
-        <ul class="fit">
-          <li>Florida general contractors and developers</li>
-          <li>Three to fifteen active projects</li>
-          <li>Lean offices of one to three admin staff</li>
-          <li>Lender-financed work with monthly draws</li>
-        </ul>
-      </div>
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The name</p>
+      <h2>Each timber bears on the next</h2>
+      <p class="quote">Leonardo da Vinci drew a bridge with no nails and no rope: the whole span holds itself up.</p>
     </div>
-  </section>
-
-  <section id="contact">
-    <p class="kicker">Contact</p>
-    <div class="contact">
-      <h2>Talk to us</h2>
-      <p>Tell us how many projects you're running and where the paperwork piles up. We'll reply within one business day.</p>
-      <a class="mail" href="mailto:andrew@bgforbuilders.com">andrew@bgforbuilders.com</a>
+    <div>
+      <p>BridgeGap is built the same way. Developers, contractors and subcontractors are the timbers of every project, each carrying the others. We lay the footing they rest on, so the span stands on its own.</p>
+      <p><a href="about.html#name" style="color:var(--gold-ink);font-weight:600">Read the story behind the name &rarr;</a></p>
     </div>
-  </section>
+  </div>
+</section>
 
+<section>
+  <div class="wrap cta-band">
+    <h2>Put a ready construction company in your pipeline</h2>
+    <a class="btn solid" href="contact.html">Send us a project</a>
+  </div>
+</section>
+
+<div class="wrap">
   <footer>
-    <span>© 2026 BridgeGap For Builders, LLC</span>
+    <span>&copy; 2026 BridgeGap For Builders, LLC</span>
     <span>Florida Certified General Contractor CGC1541464</span>
     <span>Fern Park, Florida</span>
+    <span><a href="mailto:andrew@bgforbuilders.com">andrew@bgforbuilders.com</a></span>
+    <span><a href="tel:+13215789473">(321) 578-9473</a></span>
   </footer>
 </div>
 </body>
